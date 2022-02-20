@@ -25,6 +25,7 @@
 
 
 #include "Examples/GameObjects/PerlinNoise.h"
+#include "Clouds.h"
 
 int main(void) {
 
@@ -51,6 +52,9 @@ int main(void) {
 
 	Skybox skybox(renderer);
 
+	Clouds clouds(renderer);
+	clouds.setSkybox(skybox);
+
 	PerlinNoise perlinNoise(renderer);
 
 	SettingsController::ImGuiInit(window.GetHWND(), renderer);
@@ -66,7 +70,8 @@ int main(void) {
 		renderer.beginFrame();
 		renderer.clear();
 
-		skybox.draw();
+		//skybox.draw();
+		clouds.draw();
 
 		//perlinNoise.draw();
 

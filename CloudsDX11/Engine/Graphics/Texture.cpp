@@ -35,6 +35,7 @@ bool Texture::createSampler() {
 
 Texture::Texture(Renderer& renderer, TextureFilter filter, 
 	TextureFormat textureFormat, TextureEdgeSampling textureEdgeSampling)
+
 	: device(renderer.getDevice()), deviceContext(renderer.getDeviceContext()),
 	samplerState(nullptr), texture(nullptr), textureUAV(nullptr), textureSRV(nullptr),
 	textureFilter((D3D11_FILTER) filter), textureFormat((DXGI_FORMAT) textureFormat),

@@ -30,6 +30,8 @@ protected:
 	ID3D11UnorderedAccessView* textureUAV;
 	ID3D11ShaderResourceView* textureSRV;
 
+	std::vector<ID3D11ShaderResourceView*> texturesFromFile;
+
 	// Texture options
 	D3D11_FILTER textureFilter;
 	DXGI_FORMAT textureFormat;

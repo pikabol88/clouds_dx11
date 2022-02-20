@@ -8,6 +8,7 @@
 
 
 
+
 class Skybox {
 private:
 	static const int CUBE_FACE_WIDTH = 256;
@@ -23,12 +24,15 @@ private:
 		int padding[2];
 	} sb{};
 
+
+
 	MeshData meshData;
 	Mesh mesh;
-	SkyboxShader shader;
+	
 	ConstantBuffer constantBuffer;
 	CubeMap skyCubeMap;
 	ComputeShader preethamCreatorShader;
+	SkyboxShader shader;
 
 	Renderer& renderer;
 
@@ -44,4 +48,6 @@ public:
 	CubeMap& getCubeMap();
 
 	const XMFLOAT3& getSunDir() const;
+
+	const XMMATRIX& getWorldMatrix() const;
 };

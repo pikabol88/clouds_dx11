@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Clouds.cpp" />
     <ClCompile Include="Engine\Graphics\DirectX11\D3DBuffer.cpp" />
     <ClCompile Include="Engine\Graphics\ImGui\imgui.cpp" />
     <ClCompile Include="Engine\Graphics\ImGui\imgui_draw.cpp" />
@@ -196,6 +197,7 @@
     <ClCompile Include="ShaderHandlers\SkyboxShader.cpp" />
     <ClCompile Include="Engine\SMath.cpp" />
     <ClCompile Include="Engine\Graphics\Texture.cpp" />
+    <ClCompile Include="ShaderHandlers\SkyPlaneShaderClass.cpp" />
     <ClCompile Include="ShaderHandlers\TextureShader.cpp" />
     <ClCompile Include="Engine\Application\Time.cpp" />
     <ClCompile Include="Engine\Application\Window.cpp" />
@@ -203,6 +205,7 @@
     <ClCompile Include="StringConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Clouds.h" />
     <ClInclude Include="Engine\Graphics\DirectX11\D3DBuffer.h" />
     <ClInclude Include="Engine\Graphics\ImGui\imconfig.h" />
     <ClInclude Include="Engine\Graphics\ImGui\imgui.h" />
@@ -235,6 +238,7 @@
     <ClInclude Include="ShaderHandlers\SkyboxShader.h" />
     <ClInclude Include="Engine\SMath.h" />
     <ClInclude Include="Engine\Graphics\Texture.h" />
+    <ClInclude Include="ShaderHandlers\SkyPlaneShaderClass.h" />
     <ClInclude Include="ShaderHandlers\TextureShader.h" />
     <ClInclude Include="Engine\Application\Time.h" />
     <ClInclude Include="Engine\Application\Window.h" />
@@ -255,6 +259,10 @@
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\PixelShaders\CloudsShader_Pix.hlsl">
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\PixelShaders\PixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
@@ -278,6 +286,10 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
     </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\CloudsShader_Vert.hlsl">
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+    </FxCompile>
     <FxCompile Include="Resources\Shaders\VertexShaders\SkyboxShader_Vert.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
@@ -300,6 +312,12 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\PixelShaders\skydome.ps" />
+    <None Include="Resources\Shaders\PixelShaders\skyplane.ps" />
+    <None Include="Resources\Shaders\VertexShaders\skydome.vs" />
+    <None Include="Resources\Shaders\VertexShaders\skyplane.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

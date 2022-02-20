@@ -70,6 +70,50 @@ void MeshData::createSquare() {
 	}
 }
 
+void MeshData::createPlane(int resX, int resY)
+{
+	// Default resolution
+	if (resX <= 1 || resY <= 1)
+	{
+		resX = 10;
+		resY = 10;
+	}
+
+	// Vertices
+	for (int y = 0; y < resY; ++y)
+	{
+		for (int x = 0; x < resX; ++x)
+		{
+			this->vertices.push_back(
+				this->createVert(
+					((float)x / (resX - 1)) - 0.5f,
+					0,
+					((float)-y / (resY - 1)) + 0.5f,
+
+					(float)x / (resX - 1),
+					(float)y / (resY - 1)
+				)
+			);
+		}
+	}
+
+	// Indices
+	for (int i = 0; i < (resX - 1) * (resY - 1); ++i)
+	{
+		int squareX = i % (resX - 1);
+		int squareY = i / (resX - 1);
+
+		this->indices.push_back(squareY * resX + squareX + 0);
+		this->indices.push_back(squareY * resX + squareX + resX + 1);
+		this->indices.push_back(squareY * resX + squareX + resX);
+
+		this->indices.push_back(squareY * resX + squareX + 0);
+		this->indices.push_back(squareY * resX + squareX + 1);
+		this->indices.push_back(squareY * resX + squareX + resX + 1);
+	}
+}
+
+
 
 Vertex MeshData::createVert(float _x, float _y, float _z, float _u, float _v) {
 	return { _x, _y, _z, _u, _v };
@@ -113,6 +157,9 @@ void MeshData::createDefault(DefaultMesh defaultMeshType, int resolutionX, int r
 	}
 	else if (defaultMeshType == DefaultMesh::SQUARE) {
 		this->createSquare();
+	}
+	else if (defaultMeshType == DefaultMesh::PLANE) {
+		this->createPlane(resolutionX, resolutionY);
 	}
 }
 
