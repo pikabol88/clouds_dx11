@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <FxCompile Include="Resources\Shaders\PixelShaders\CloudsShader_Pix.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\CloudsShader_Vert.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\PixelShaders\PixelShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\ComputeShaders\PreethamSkyCreator_Comp.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\PixelShaders\SkyboxShader_Pix.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\SkyboxShader_Vert.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\VertexShader.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\TestV.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\PixelShaders\TestP.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Engine\Graphics\ImGui\imgui.cpp">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ImGui\imgui_draw.cpp">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ImGui\imgui_impl_dx11.cpp">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ImGui\imgui_impl_win32.cpp">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ImGui\imgui_tables.cpp">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ImGui\imgui_widgets.cpp">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="PerlinNoiseShader.cpp">
+      <Filter>ShaderHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderHandlers\SkyPlaneShaderClass.cpp">
+      <Filter>ShaderHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderHandlers\ColorShader.cpp">
+      <Filter>ShaderHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderHandlers\SkyboxShader.cpp">
+      <Filter>ShaderHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderHandlers\TextureShader.cpp">
+      <Filter>ShaderHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Application\Time.cpp">
+      <Filter>Engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Application\Input.cpp">
+      <Filter>Engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Application\Window.cpp">
+      <Filter>Engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Dev\Log.cpp">
+      <Filter>Engine\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorLogger.cpp">
+      <Filter>Engine\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SMath.cpp">
+      <Filter>Engine\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="StringConverter.cpp">
+      <Filter>Engine\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\Camera.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ComputeShader.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\ConstantBuffer.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\CubeMap.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\Mesh.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\MeshData.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\Renderer.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\Shader.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\Texture.cpp">
+      <Filter>Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="External\WICTextureLoader11.cpp">
+      <Filter>Engine\Graphics\TextureLoaders</Filter>
+    </ClCompile>
+    <ClCompile Include="External\DDSTextureLoader11.cpp">
+      <Filter>Engine\Graphics\TextureLoaders</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Engine\Stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="Clouds.cpp">
+      <Filter>GraphicObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\GameObjects\PerlinNoise.cpp">
+      <Filter>GraphicObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\GameObjects\Skybox.cpp">
+      <Filter>GraphicObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\GameObjects\CameraController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\DirectX11\D3DBuffer.cpp">
+      <Filter>Engine\Graphics\DirectX</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\Graphics\ImGui\imstb_truetype.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imgui.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imgui_impl_dx11.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imgui_impl_win32.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imgui_internal.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imstb_rectpack.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imstb_textedit.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ImGui\imconfig.h">
+      <Filter>Engine\Graphics\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="PerlinNoiseShader.h">
+      <Filter>ShaderHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderHandlers\SkyPlaneShaderClass.h">
+      <Filter>ShaderHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderHandlers\ColorShader.h">
+      <Filter>ShaderHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderHandlers\SkyboxShader.h">
+      <Filter>ShaderHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderHandlers\TextureShader.h">
+      <Filter>ShaderHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Application\Time.h">
+      <Filter>Engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Application\Input.h">
+      <Filter>Engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Application\Window.h">
+      <Filter>Engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Dev\Log.h">
+      <Filter>Engine\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Dev\Helpers.h">
+      <Filter>Engine\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorLogger.h">
+      <Filter>Engine\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SMath.h">
+      <Filter>Engine\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="StringConverter.h">
+      <Filter>Engine\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Camera.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ComputeShader.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\ConstantBuffer.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\CubeMap.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Mesh.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\MeshData.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Renderer.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Shader.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\Texture.h">
+      <Filter>Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="External\WICTextureLoader11.h">
+      <Filter>Engine\Graphics\TextureLoaders</Filter>
+    </ClInclude>
+    <ClInclude Include="External\DDSTextureLoader11.h">
+      <Filter>Engine\Graphics\TextureLoaders</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Engine\Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Clouds.h">
+      <Filter>GraphicObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\GameObjects\PerlinNoise.h">
+      <Filter>GraphicObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\GameObjects\Skybox.h">
+      <Filter>GraphicObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Examples\GameObjects\CameraController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\DirectX11\D3DBuffer.h">
+      <Filter>Engine\Graphics\DirectX</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{e95b77ac-04f7-460b-8f15-2c37fc6e1e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShaderHandlers">
+      <UniqueIdentifier>{554cd58a-7bfe-48f6-8f8e-f0b5e1212b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{75c6d54a-68c0-4c96-a008-8259e19d989a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\App">
+      <UniqueIdentifier>{f0159a3b-0178-4787-a113-6d1439330d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Stuff">
+      <UniqueIdentifier>{e880ba31-f0f0-4820-88a7-d4886ddbc9c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Graphics">
+      <UniqueIdentifier>{718688cc-abc5-4beb-ac3c-10ac8a23e9d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Graphics\TextureLoaders">
+      <UniqueIdentifier>{ac724d6d-f25e-4f93-94f0-a15a09b0f3be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicObjects">
+      <UniqueIdentifier>{6396d2d9-53a8-47b8-aad8-9a2b4bb70f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controllers">
+      <UniqueIdentifier>{3ab835c9-f24c-4ea1-9735-cdbf71cd8778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Graphics\ImGui">
+      <UniqueIdentifier>{4efed142-4c65-4637-bf5a-74e9d1b086ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Graphics\DirectX">
+      <UniqueIdentifier>{0610efd2-3ecd-442d-8886-a3ddc9984600}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

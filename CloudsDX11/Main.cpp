@@ -27,6 +27,7 @@
 #include "Examples/GameObjects/PerlinNoise.h"
 #include "Clouds.h"
 
+
 int main(void) {
 
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
@@ -42,7 +43,11 @@ int main(void) {
 		Log::error("Could not initialize window.");
 	}
 
+	ID3D11Debug* d3dDebug = nullptr;
+
 	Renderer renderer(window);
+
+	renderer.getDevice()->QueryInterface(IID_PPV_ARGS(&d3dDebug));	
 
 	CameraController cameraController(windowWidth, windowHeight);
 
@@ -54,8 +59,6 @@ int main(void) {
 
 	Clouds clouds(renderer);
 	clouds.setSkybox(skybox);
-
-	PerlinNoise perlinNoise(renderer);
 
 	SettingsController::ImGuiInit(window.GetHWND(), renderer);
 
@@ -69,11 +72,9 @@ int main(void) {
 
 		renderer.beginFrame();
 		renderer.clear();
-
+		
 		//skybox.draw();
 		clouds.draw();
-
-		//perlinNoise.draw();
 
 		SettingsController::ImGuiNewFrame();
 
@@ -88,6 +89,13 @@ int main(void) {
 
 	window.Release();
 
+	UINT reference = renderer.getDevice()->Release();
+
+	if (reference > 1) {
+		d3dDebug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL);
+		d3dDebug->Release();
+	}
+	
 	return 0;
 }
 

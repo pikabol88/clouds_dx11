@@ -64,6 +64,7 @@ void Mesh::prepareToDraw(ID3D11DeviceContext*& deviceContext) {
 
 	// Set index buffer
 	deviceContext->IASetIndexBuffer(this->indexBuffer, DXGI_FORMAT_R32_UINT, 0);
+
 }
 
 const Renderer& Mesh::getRenderer() const {

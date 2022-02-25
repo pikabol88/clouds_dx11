@@ -11,7 +11,6 @@ cbuffer SkyBuffer
     float translation;
     float scale;
     float brightness;
-    float padding;
 };
 
 

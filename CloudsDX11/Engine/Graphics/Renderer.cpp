@@ -38,7 +38,7 @@ bool Renderer::createDevice(RenderWindow& window, bool vsyncEnabled) {
 		nullptr,  //IDXGI Adapter
 		D3D_DRIVER_TYPE_HARDWARE,  
 		nullptr,  //FOR SOFTWARE DRIVER TYPE
-		0, //FLAGS FOR RUNTIME LAYERS
+		D3D11_CREATE_DEVICE_DEBUG, //FLAGS FOR RUNTIME LAYERS
 		nullptr,//&featureLevel,  //FEATURE LEVELS ARRAY
 		0,//1, //# OF FEATURE LEVELS IN ARRAY
 		D3D11_SDK_VERSION, 
@@ -171,7 +171,7 @@ bool Renderer::createDepthStencilBuffers(RenderWindow& window)
 	// Setup the raster description which will determine how and what
 	// polygons will be drawn
 	this->_rasterDesc.AntialiasedLineEnable = false;
-	this->_rasterDesc.CullMode = D3D11_CULL_BACK; //D3D11_CULL_NONE;
+	this->_rasterDesc.CullMode = D3D11_CULL_BACK; //D3D11_CULL_NONE
 	this->_rasterDesc.DepthBias = 0;
 	this->_rasterDesc.DepthBiasClamp = 0.0f;
 	this->_rasterDesc.DepthClipEnable = true;

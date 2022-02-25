@@ -10,7 +10,8 @@ struct Vertex {
 enum class DefaultMesh {
 	CUBE,	
 	SQUARE,
-	PLANE
+	PLANE, 
+	SKY_PLANE
 };
 
 class MeshData {
@@ -21,6 +22,7 @@ private:
 	void createCube();
 	void createSquare();
 	void createPlane(int resX, int resY);
+	void createSkyPlane(int skyPlaneResolution, float skyPlaneWidth, float skyPlaneTop, float skyPlaneBottom, int textureRepeat);
 	Vertex createVert(float _x, float _y, float _z, float _u, float _v);
 	void transformVertices(const XMMATRIX& meshTransform);
 

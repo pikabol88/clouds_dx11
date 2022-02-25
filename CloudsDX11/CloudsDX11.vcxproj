@@ -313,12 +313,6 @@
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
     </FxCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Shaders\PixelShaders\skydome.ps" />
-    <None Include="Resources\Shaders\PixelShaders\skyplane.ps" />
-    <None Include="Resources\Shaders\VertexShaders\skydome.vs" />
-    <None Include="Resources\Shaders\VertexShaders\skyplane.vs" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

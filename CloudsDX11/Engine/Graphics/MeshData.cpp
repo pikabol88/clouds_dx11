@@ -75,8 +75,8 @@ void MeshData::createPlane(int resX, int resY)
 	// Default resolution
 	if (resX <= 1 || resY <= 1)
 	{
-		resX = 10;
-		resY = 10;
+		resX = 50;
+		resY = 50;
 	}
 
 	// Vertices
@@ -113,6 +113,47 @@ void MeshData::createPlane(int resX, int resY)
 	}
 }
 
+void MeshData::createSkyPlane(int skyPlaneResolution, float skyPlaneWidth, float skyPlaneTop, float skyPlaneBottom, int textureRepeat) {
+	
+	float quadSize, radius, constant, textureDelta;
+	int i, j, index;
+	float positionX, positionY, positionZ, tu, tv;
+
+	// Determine the size of each quad on the sky plane.
+	quadSize = skyPlaneWidth / (float)skyPlaneResolution;
+
+	// Calculate the radius of the sky plane based on the width.
+	radius = skyPlaneWidth / 2.0f;
+
+	// Calculate the height constant to increment by.
+	constant = (skyPlaneTop - skyPlaneBottom) / (radius * radius);
+
+	// Calculate the texture coordinate increment value.
+	textureDelta = (float)textureRepeat / (float)skyPlaneResolution;
+
+	// Loop through the sky plane and build the coordinates based on the increment values given.
+	for (j = 0; j <= skyPlaneResolution; j++)
+	{
+		for (i = 0; i <= skyPlaneResolution; i++)
+		{
+			// Calculate the vertex coordinates.
+			positionX = (-0.5f * skyPlaneWidth) + ((float)i * quadSize);
+			positionZ = (-0.5f * skyPlaneWidth) + ((float)j * quadSize);
+			positionY = skyPlaneTop - (constant * ((positionX * positionX) + (positionZ * positionZ)));
+
+			// Calculate the texture coordinates.
+			tu = (float)i * textureDelta;
+			tv = (float)j * textureDelta;
+
+			this->vertices.push_back(this->createVert(positionX, positionY, positionZ, tu, tv));
+
+			// Calculate the index into the sky plane array to add this coordinate.
+			index = j * (skyPlaneResolution + 1) + i;
+
+			this->indices.push_back(index);
+		}
+	}
+}
 
 
 Vertex MeshData::createVert(float _x, float _y, float _z, float _u, float _v) {
@@ -160,6 +201,20 @@ void MeshData::createDefault(DefaultMesh defaultMeshType, int resolutionX, int r
 	}
 	else if (defaultMeshType == DefaultMesh::PLANE) {
 		this->createPlane(resolutionX, resolutionY);
+	} 
+	else if (defaultMeshType == DefaultMesh::SKY_PLANE) {
+		int skyPlaneResolution, textureRepeat;
+		float skyPlaneWidth, skyPlaneTop, skyPlaneBottom;
+		bool result;
+
+		skyPlaneResolution = 50;
+		skyPlaneWidth = 10.0f;
+		skyPlaneTop = 0.5f;
+		skyPlaneBottom = 0.0f;
+		textureRepeat = 2;
+
+		this->createSkyPlane(skyPlaneResolution, skyPlaneWidth, skyPlaneTop, skyPlaneBottom, textureRepeat);
+
 	}
 }
 
