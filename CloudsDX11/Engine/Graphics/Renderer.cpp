@@ -240,7 +240,7 @@ void Renderer::endFrame() {
 
 void Renderer::clear() {
 
-	float backgroundColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+	float backgroundColor[] = { 0.5f, 0.5f, 0.5f, 1.0f };
 
 	this->_deviceContext->ClearRenderTargetView(this->_renderTargetView, backgroundColor);
 	this->_deviceContext->ClearDepthStencilView(this->_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
