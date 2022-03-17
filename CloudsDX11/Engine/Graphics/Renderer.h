@@ -20,6 +20,10 @@ private:
 	D3D11_TEXTURE2D_DESC _backBufferDesc;
 	D3D11_RASTERIZER_DESC _rasterDesc;
 
+	ID3D11BlendState* m_alphaEnableBlendingState;
+	ID3D11BlendState* m_alphaDisableBlendingState;
+	ID3D11BlendState* m_alphaBlendState2;
+
 	Camera* _camera;
 	XMMATRIX _projectionMatrix;
 	XMMATRIX _viewMatrix;
@@ -29,8 +33,17 @@ private:
 	bool createDevice(RenderWindow& window, bool vsyncEnabled);
 	bool createRenderTarget();
 	bool createDepthStencilBuffers(RenderWindow& window);
+	bool createBlendState();
+
+	
 
 public:
+	void EnableSecondBlendState();
+
+	void TurnOnAlphaBlending();
+	void TurnOffAlphaBlending();
+
+
 	Renderer(RenderWindow& window);
 	~Renderer();
 

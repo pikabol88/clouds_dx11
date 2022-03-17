@@ -73,8 +73,13 @@ int main(void) {
 		renderer.beginFrame();
 		renderer.clear();
 		
-		//skybox.draw();
+		skybox.draw();
+
+		renderer.EnableSecondBlendState();
+
 		clouds.draw();
+
+		renderer.TurnOffAlphaBlending();
 
 		SettingsController::ImGuiNewFrame();
 

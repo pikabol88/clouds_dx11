@@ -200,13 +200,77 @@ bool Renderer::createDepthStencilBuffers(RenderWindow& window)
 	return true;
 }
 
+bool Renderer::createBlendState() {
+	// Clear the blend state description.
+
+	HRESULT result;
+
+	D3D11_BLEND_DESC blendStateDescription = { 0 };
+
+	
+
+	// Create an alpha enabled blend state description.
+	blendStateDescription.RenderTarget[0].BlendEnable = TRUE;
+	blendStateDescription.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+	blendStateDescription.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+	blendStateDescription.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blendStateDescription.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendStateDescription.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	blendStateDescription.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blendStateDescription.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+
+
+	// Create the blend state using the description.
+	result = this->getDevice()->CreateBlendState(&blendStateDescription, &m_alphaEnableBlendingState);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	// Modify the description to create an alpha disabled blend state description.
+	blendStateDescription.RenderTarget[0].BlendEnable = FALSE;
+
+	// Create the second blend state using the description.
+	result = this->getDevice()->CreateBlendState(&blendStateDescription, &m_alphaDisableBlendingState);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+	// Create a secondary alpha blend state description.
+	blendStateDescription.RenderTarget[0].BlendEnable = TRUE;
+	blendStateDescription.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+	blendStateDescription.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
+	blendStateDescription.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+	blendStateDescription.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+	blendStateDescription.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+	blendStateDescription.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+	blendStateDescription.RenderTarget[0].RenderTargetWriteMask = 0x0f;
+
+	// Create the blend state using the description.
+	result = this->getDevice()->CreateBlendState(&blendStateDescription, &m_alphaBlendState2);
+	if (FAILED(result))
+	{
+		return false;
+	}
+
+}
+
 Renderer::Renderer(RenderWindow& window): _swapChain(nullptr), _device(nullptr), _deviceContext(nullptr), _renderTargetView(nullptr), _camera(nullptr) {
 	this->_projectionMatrix = XMMatrixIdentity();
-	this->_viewMatrix = XMMatrixIdentity();
+	//this->_viewMatrix = XMMatrixIdentity();
+
+	this->_viewMatrix = XMMatrixSet(
+		0.99942f, 0.00521f, -0.03359f, 0.00f,
+		0.00f, 0.98817f, 0.15339f, 1.0f,
+		0.03399f, -0.1533f, 0.98759f, 0.00f,
+		0.10198f, -1.44808f, 2.80939f, 1.00f
+	);
 
 	this->createDevice(window, vsyncEnabled);
 	this->createRenderTarget();
 	this->createDepthStencilBuffers(window);
+	this->createBlendState();
 }
 
 Renderer::~Renderer() {
@@ -223,6 +287,9 @@ Renderer::~Renderer() {
 	S_RELEASE(this->_deviceContext);
 	S_RELEASE(this->_device);
 	S_RELEASE(this->_swapChain);
+	S_RELEASE(this->m_alphaBlendState2);
+	S_RELEASE(this->m_alphaEnableBlendingState);
+	S_RELEASE(this->m_alphaDisableBlendingState);
 }
 
 
@@ -272,4 +339,58 @@ XMMATRIX Renderer::getViewMatrix() {
 
 XMFLOAT3 Renderer::getCameraPosition() const {
 	return this->_camera->getPosition();
+}
+
+
+
+void Renderer::TurnOnAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn on the alpha blending.
+	this->getDeviceContext()->OMSetBlendState(m_alphaEnableBlendingState, blendFactor, 0xffffffff);
+
+	return;
+}
+
+
+void Renderer::TurnOffAlphaBlending()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn off the alpha blending.
+	this->getDeviceContext()->OMSetBlendState(m_alphaDisableBlendingState, blendFactor, 0xffffffff);
+
+	return;
+}
+
+void Renderer::EnableSecondBlendState()
+{
+	float blendFactor[4];
+
+
+	// Setup the blend factor.
+	blendFactor[0] = 0.0f;
+	blendFactor[1] = 0.0f;
+	blendFactor[2] = 0.0f;
+	blendFactor[3] = 0.0f;
+
+	// Turn on the alpha blending.
+	this->getDeviceContext()->OMSetBlendState(m_alphaBlendState2, blendFactor, 0xffffffff);
+
+	return;
 }

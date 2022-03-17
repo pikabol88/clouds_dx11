@@ -11,6 +11,8 @@ cloudTexture(renderer, TextureFilter::BILINEAR, TextureFormat::R8G8B8A8_UNORM, T
 	this->cloudTexture.createFromFile("Resources/Textures/cloud001.dds");
 	this->perturbTexture.createFromFile("Resources/Textures/perturb001.dds");
 
+	this->constantBuffer.setPS();
+
 	cb.brightness = 0.5f;
 	cb.scale = 0.3f;
 	cb.padding = 0.0f;
@@ -29,7 +31,11 @@ void Clouds::draw() {
 	this->constantBuffer.update(&this->cb);
 	this->cloudTexture.setPS(0);
 	this->perturbTexture.setPS(1);
-	this->shader.update(renderer, this->skybox->getWorldMatrix());
+
+	XMMATRIX newMatrix = this->skybox->getWorldMatrix();
+	
+
+	this->shader.update(renderer, this->mesh.getWorldMatrix());
 	this->shader.set();
 	this->mesh.draw();
 }
