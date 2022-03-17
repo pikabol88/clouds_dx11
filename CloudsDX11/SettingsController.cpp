@@ -12,7 +12,7 @@ void SettingsController::ImGuiNewFrame() {
 	ImGui::NewFrame();
 }
 
-void SettingsController::ImGuiInit(const HWND hwnd, const Renderer renderer) {
+void SettingsController::ImGuiInit(const HWND hwnd, const Renderer &renderer) {
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();

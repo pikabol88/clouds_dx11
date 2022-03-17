@@ -13,7 +13,7 @@ public:
     static float time;
     static std::string fpsStr;
 
-    static void ImGuiInit(const HWND hwnd, const Renderer renderer);
+    static void ImGuiInit(const HWND hwnd, const Renderer &renderer);
     
     static void ImGuiNewFrame();
 
