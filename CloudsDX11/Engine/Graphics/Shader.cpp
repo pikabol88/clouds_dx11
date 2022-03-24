@@ -106,7 +106,7 @@ Shader::~Shader() {
 	S_RELEASE(this->inputLayout);
 }
 
-void Shader::update(Renderer& renderer, XMMATRIX currentWorldMatrix) {
+void Shader::update(Renderer& renderer, XMMATRIX currentWorldMatrix, bool staticView) {
 	// Transpose matrices
 	XMMATRIX projectionMatrix = XMMatrixTranspose(renderer.getProjectionMatrix());
 	XMMATRIX viewMatrix = XMMatrixTranspose(renderer.getViewMatrix());
@@ -117,13 +117,25 @@ void Shader::update(Renderer& renderer, XMMATRIX currentWorldMatrix) {
 	//	0.00f, 1.0008f, 0.00f, 0.00f,
 	//	0.00f, 0.00f, 1.0001f, 1.00f,
 	//	0.00f, 0.00f, -0.10001f, 0.00f);
-	
-	viewMatrix = XMMatrixSet(
-		0.99942f, 0.00521f, -0.03359f, 0.00f,
-		0.00f, 0.98817f, 0.15339f, 0.3f,
-		0.03399f, -0.1533f, 0.98759f, 0.00f,
-		0.10198f, -1.44808f, 2.80939f, 1.00f
-	);
+
+	//if (staticView) {
+	//	viewMatrix = XMMatrixSet(
+	//		0.99942f, 0.00521f, -0.03359f, 0.00f,
+	//		0.00f, 0.98817f, 0.15339f, 0.3f,
+	//		0.03399f, -0.1533f, 0.98759f, 0.00f,
+	//		0.0f,0.0f, 0.0f, 1.00f
+	//	);
+	//}
+
+	if (staticView) {
+		viewMatrix = XMMatrixSet(
+			1.0f, 0.0f, 0.0f, 0.00f,
+			0.00f, 1.0f, 0.0f, 0.3f,
+			0.0f, 0.0f, 1.0f, 0.00f,
+			0.0f,0.0f, 0.0f, 1.00f
+		);
+	}
+
 
 	//XMMATRIX worldMatrix = XMMatrixSet(
 	//	1.00f, 0.00f, 0.00f, 0.00f,

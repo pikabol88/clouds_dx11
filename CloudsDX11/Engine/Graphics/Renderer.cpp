@@ -266,6 +266,8 @@ Renderer::Renderer(RenderWindow& window): _swapChain(nullptr), _device(nullptr),
 		0.03399f, -0.1533f, 0.98759f, 0.00f,
 		0.10198f, -1.44808f, 2.80939f, 1.00f
 	);
+	this->screenH = window.getHeight();
+	this->screenW = window.getWidth();
 
 	this->createDevice(window, vsyncEnabled);
 	this->createRenderTarget();

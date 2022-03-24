@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Clouds.h"
+#include "SettingsController.h"
 
 
 Clouds::Clouds(Renderer& renderer): skybox(nullptr), meshData(DefaultMesh::SKY_PLANE, 100, 100, false), mesh(renderer, this->meshData),
@@ -22,11 +23,15 @@ cloudTexture(renderer, TextureFilter::BILINEAR, TextureFormat::R8G8B8A8_UNORM, T
 Clouds::~Clouds(){}
 
 void Clouds::draw() {
-	cb.translation += 0.0001f;
+	cb.translation += SettingsController::translationSpeed/10000;
+
 	if (cb.translation > 1.0f)
 	{
 		cb.translation -= 1.0f;
 	}
+
+	cb.brightness = SettingsController::brightness;
+	cb.scale = SettingsController::scale;
 
 	this->constantBuffer.update(&this->cb);
 	this->cloudTexture.setPS(0);
@@ -35,7 +40,7 @@ void Clouds::draw() {
 	XMMATRIX newMatrix = this->skybox->getWorldMatrix();
 	
 
-	this->shader.update(renderer, this->mesh.getWorldMatrix());
+	this->shader.update(renderer, this->mesh.getWorldMatrix(), true);
 	this->shader.set();
 	this->mesh.draw();
 }

@@ -43,7 +43,7 @@ public:
 
 	virtual ~Shader();
 
-	virtual void update(Renderer& renderer, XMMATRIX currentWorldMatrix);
+	virtual void update(Renderer& renderer, XMMATRIX currentWorldMatrix, bool staticView = false);
 
 	virtual void set();
 };

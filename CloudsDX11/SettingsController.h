@@ -11,6 +11,11 @@ public:
 
     static float turbidity;
     static float time;
+
+    static float brightness;
+    static float scale;
+    static float translationSpeed;
+
     static std::string fpsStr;
 
     static void ImGuiInit(const HWND hwnd, const Renderer &renderer);
@@ -20,6 +25,7 @@ public:
     static void DispalyFPSMonitor();
     static void DisplayTurbiditySlider();
     static void DisplayTimeSlider();
+    static void DisplayCloudsSettings();
 
     static void ImGuiEndFrame();
 };

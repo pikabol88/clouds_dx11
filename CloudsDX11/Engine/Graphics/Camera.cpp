@@ -22,10 +22,13 @@ void Camera::updateViewMatrix() {
 
 Camera::Camera(float fov, float aspectRatio, float nearZ, float farZ, XMVECTOR startPos)
 	: pitch(0.0f), yaw(0.0f) {
+
+	
+
 	this->projectionMatrix = XMMatrixPerspectiveFovLH(fov, aspectRatio, nearZ, farZ);
 
 	this->position = startPos;
-	this->lookAt = XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f);
+	this->lookAt = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 	this->worldUp = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 
 	this->updateDirectionVectors();

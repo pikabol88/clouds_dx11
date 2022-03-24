@@ -274,10 +274,10 @@ void MeshData::createDefault(DefaultMesh defaultMeshType, int resolutionX, int r
 		bool result;
 
 		skyPlaneResolution = 50;
-		skyPlaneWidth = 10.0f;
-		skyPlaneTop = 0.5f;
+		skyPlaneWidth = 50.0f;
+		skyPlaneTop = 2.0f;
 		skyPlaneBottom = 0.0f;
-		textureRepeat = 2;
+		textureRepeat = 3;
 
 		//this->createPlane(skyPlaneResolution, skyPlaneResolution);
 

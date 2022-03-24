@@ -77,6 +77,8 @@ int main(void) {
 
 		renderer.EnableSecondBlendState();
 
+		//renderer.TurnOnAlphaBlending();
+
 		clouds.draw();
 
 		renderer.TurnOffAlphaBlending();
@@ -86,6 +88,8 @@ int main(void) {
 		SettingsController::DispalyFPSMonitor();
 		SettingsController::DisplayTimeSlider();
 		SettingsController::DisplayTurbiditySlider();
+
+		SettingsController::DisplayCloudsSettings();
 		
 		SettingsController::ImGuiEndFrame();
 

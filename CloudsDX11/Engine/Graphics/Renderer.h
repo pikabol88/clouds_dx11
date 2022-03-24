@@ -38,6 +38,9 @@ private:
 	
 
 public:
+	int screenW;
+	int screenH;
+
 	void EnableSecondBlendState();
 
 	void TurnOnAlphaBlending();

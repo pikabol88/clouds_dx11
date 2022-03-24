@@ -4,6 +4,11 @@
 
 float SettingsController::turbidity = 2.0f;
 float SettingsController::time = 0.0f;
+float SettingsController::brightness = 0.5f;
+float SettingsController::scale = 0.3f;
+float SettingsController::translationSpeed = 0.5f;
+
+
 std::string SettingsController::fpsStr = "";
 
 void SettingsController::ImGuiNewFrame() {
@@ -14,6 +19,8 @@ void SettingsController::ImGuiNewFrame() {
 
 void SettingsController::ImGuiInit(const HWND hwnd, const Renderer &renderer) {
 	IMGUI_CHECKVERSION();
+	static ImVec2 pos = ImVec2(50, renderer.screenH - 400);
+	//ImGui::SetNextWindowPos(pos);
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
 	ImGui_ImplWin32_Init(hwnd);
@@ -38,6 +45,13 @@ void SettingsController::DisplayTurbiditySlider() {
 
 void SettingsController::DisplayTimeSlider() {
 	ImGui::SliderFloat("Time", &SettingsController::time, 0.0f, 3.0f);
+}
+
+void SettingsController::DisplayCloudsSettings()
+{
+	ImGui::SliderFloat("Clouds translation", &SettingsController::translationSpeed, 0.0f, 1.0f);
+	ImGui::SliderFloat("Clouds brightness", &SettingsController::brightness, 0.0f, 3.0f);
+	ImGui::SliderFloat("Clouds scale", &SettingsController::scale, 0.0f, 0.5f);
 }
 
 void SettingsController::ImGuiEndFrame() {

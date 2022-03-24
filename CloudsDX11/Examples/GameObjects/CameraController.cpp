@@ -4,8 +4,9 @@
 #include "../../Engine/Dev/Log.h"
 
 CameraController::CameraController(int windowWidth, int windowHeight) : 
-    camera(3.14f * 0.5f, (float)windowWidth / (float)windowHeight, 0.1f, 1000.0f, XMVectorSet(0.0f, 1.0f, -3.0f, 1.0f)),
-    mouseSensitivity(0.2f), movementSpeed(3.0f) {}
+    camera(3.14f * 0.5f, (float)windowWidth / (float)windowHeight, 0.1f, 1000.0f, XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f)),
+    mouseSensitivity(0.2f), movementSpeed(3.0f) {
+}
 
 CameraController::~CameraController(){}
 
