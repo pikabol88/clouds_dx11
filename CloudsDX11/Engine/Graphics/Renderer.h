@@ -4,6 +4,7 @@
 #include "../Application/Window.h"
 #include "../Dev/Helpers.h"
 #include "Camera.h"
+#include "CameraClass.h"
 
 class Renderer {
 private:
@@ -25,6 +26,8 @@ private:
 	ID3D11BlendState* m_alphaBlendState2;
 
 	Camera* _camera;
+	//CameraClass* _camera2;
+
 	XMMATRIX _projectionMatrix;
 	XMMATRIX _viewMatrix;
 
@@ -55,6 +58,8 @@ public:
 	void endFrame();
 
 	void setCamera(Camera& cam);
+
+	//void setCamera(CameraClass& cam);
 
 	void setWireframe(bool wireFrame);
 

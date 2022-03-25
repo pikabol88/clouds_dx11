@@ -22,9 +22,6 @@ void Camera::updateViewMatrix() {
 
 Camera::Camera(float fov, float aspectRatio, float nearZ, float farZ, XMVECTOR startPos)
 	: pitch(0.0f), yaw(0.0f) {
-
-	
-
 	this->projectionMatrix = XMMatrixPerspectiveFovLH(fov, aspectRatio, nearZ, farZ);
 
 	this->position = startPos;

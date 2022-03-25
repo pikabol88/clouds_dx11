@@ -4,7 +4,7 @@
 #include "../../Engine/Dev/Log.h"
 
 CameraController::CameraController(int windowWidth, int windowHeight) : 
-    camera(3.14f * 0.5f, (float)windowWidth / (float)windowHeight, 0.1f, 1000.0f, XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f)),
+    camera(3.14f * 0.5f, (float)windowWidth / (float)windowHeight, 0.1f, 1000.0f, XMVectorSet(0.0f, 0.6f, 0.0f, 0.0f)),
     mouseSensitivity(0.2f), movementSpeed(3.0f) {
 }
 
@@ -15,6 +15,7 @@ void CameraController::update() {
     float rotY = -Input::getCursorDeltaY() * this->mouseSensitivity * 0.01f;
 
     camera.rotate(XMVectorSet(rotX, rotY, 0.0f, 0.0f));
+    //camera2.SetRotation(XMVectorSet(rotX, rotY, 0.0f, 0.0f));
 
 
     // Movement
@@ -26,9 +27,15 @@ void CameraController::update() {
     XMVECTOR deltaMovement =
         XMVector3Normalize(XMVectorSet((float) leftDir, (float) upDir, (float) forwardDir, 0.0f)) *
         this->movementSpeed * Time::getDeltaTime();
+
+    //camera2.SetPosition(camera2.GetPositionVector() + deltaMovement);
     camera.move(deltaMovement);
 }
 
 Camera& CameraController::getCamera() {
     return this->camera;
 }
+
+//CameraClass& CameraController::getCamera() {
+//    return this->camera2;
+//}

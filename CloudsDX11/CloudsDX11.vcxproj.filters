@@ -28,6 +28,12 @@
     <FxCompile Include="Resources\Shaders\PixelShaders\TestP.hlsl">
       <Filter>Shaders</Filter>
     </FxCompile>
+    <FxCompile Include="Resources\Shaders\PixelShaders\TerrainShader_Pix.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\TerrainShader_Vert.hlsl">
+      <Filter>Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
@@ -139,6 +145,13 @@
     <ClCompile Include="Engine\Graphics\DirectX11\D3DBuffer.cpp">
       <Filter>Engine\Graphics\DirectX</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderHandlers\TerrainShaderClass.cpp">
+      <Filter>ShaderHandlers</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>GraphicObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Graphics\CameraClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Graphics\ImGui\imstb_truetype.h">
@@ -258,6 +271,13 @@
     <ClInclude Include="Engine\Graphics\DirectX11\D3DBuffer.h">
       <Filter>Engine\Graphics\DirectX</Filter>
     </ClInclude>
+    <ClInclude Include="ShaderHandlers\TerrainShaderClass.h">
+      <Filter>ShaderHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>GraphicObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Graphics\CameraClass.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Shaders">

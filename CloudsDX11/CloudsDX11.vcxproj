@@ -158,6 +158,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Clouds.cpp" />
+    <ClCompile Include="Engine\Graphics\CameraClass.cpp" />
     <ClCompile Include="Engine\Graphics\DirectX11\D3DBuffer.cpp" />
     <ClCompile Include="Engine\Graphics\ImGui\imgui.cpp" />
     <ClCompile Include="Engine\Graphics\ImGui\imgui_draw.cpp" />
@@ -198,14 +199,17 @@
     <ClCompile Include="Engine\SMath.cpp" />
     <ClCompile Include="Engine\Graphics\Texture.cpp" />
     <ClCompile Include="ShaderHandlers\SkyPlaneShaderClass.cpp" />
+    <ClCompile Include="ShaderHandlers\TerrainShaderClass.cpp" />
     <ClCompile Include="ShaderHandlers\TextureShader.cpp" />
     <ClCompile Include="Engine\Application\Time.cpp" />
     <ClCompile Include="Engine\Application\Window.cpp" />
     <ClCompile Include="Examples\GameObjects\Skybox.cpp" />
     <ClCompile Include="StringConverter.cpp" />
+    <ClCompile Include="Terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clouds.h" />
+    <ClInclude Include="Engine\Graphics\CameraClass.h" />
     <ClInclude Include="Engine\Graphics\DirectX11\D3DBuffer.h" />
     <ClInclude Include="Engine\Graphics\ImGui\imconfig.h" />
     <ClInclude Include="Engine\Graphics\ImGui\imgui.h" />
@@ -239,11 +243,13 @@
     <ClInclude Include="Engine\SMath.h" />
     <ClInclude Include="Engine\Graphics\Texture.h" />
     <ClInclude Include="ShaderHandlers\SkyPlaneShaderClass.h" />
+    <ClInclude Include="ShaderHandlers\TerrainShaderClass.h" />
     <ClInclude Include="ShaderHandlers\TextureShader.h" />
     <ClInclude Include="Engine\Application\Time.h" />
     <ClInclude Include="Engine\Application\Window.h" />
     <ClInclude Include="Examples\GameObjects\Skybox.h" />
     <ClInclude Include="StringConverter.h" />
+    <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Resources\Shaders\ComputeShaders\PreethamSkyCreator_Comp.hlsl">
@@ -282,6 +288,10 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0_level_9_3</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
+    <FxCompile Include="Resources\Shaders\PixelShaders\TerrainShader_Pix.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
+    </FxCompile>
     <FxCompile Include="Resources\Shaders\PixelShaders\TestP.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
@@ -303,6 +313,10 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4.0_level_9_3</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="Resources\Shaders\VertexShaders\TerrainShader_Vert.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)/CompiledShaders/%(Filename).cso</ObjectFileOutput>
     </FxCompile>
     <FxCompile Include="Resources\Shaders\VertexShaders\TestV.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>

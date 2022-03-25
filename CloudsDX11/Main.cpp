@@ -26,6 +26,7 @@
 
 #include "Examples/GameObjects/PerlinNoise.h"
 #include "Clouds.h"
+#include "Terrain.h"
 
 
 int main(void) {
@@ -58,7 +59,12 @@ int main(void) {
 	Skybox skybox(renderer);
 
 	Clouds clouds(renderer);
+
+	Terrain terrain(renderer);
+
 	clouds.setSkybox(skybox);
+
+	terrain.setSkybox(skybox);
 
 	SettingsController::ImGuiInit(window.GetHWND(), renderer);
 
@@ -82,6 +88,11 @@ int main(void) {
 		clouds.draw();
 
 		renderer.TurnOffAlphaBlending();
+
+		terrain.draw();
+
+		renderer.TurnOffAlphaBlending();
+
 
 		SettingsController::ImGuiNewFrame();
 

@@ -28,6 +28,13 @@ private:
 		std::vector<D3D11_INPUT_ELEMENT_DESC>& layout
 	);
 
+	bool loadFromFileCustom(
+		ID3D11Device* device,
+		std::string vertexShaderFilePath,
+		std::string pixelShaderFilePath,
+		std::vector<D3D11_INPUT_ELEMENT_DESC>& layout
+	);
+
 public:
 	Shader(
 		Renderer& renderer,
@@ -38,7 +45,7 @@ public:
 		Renderer& renderer, 
 		std::string vertexShaderFilePath, 
 		std::string pixelShaderFilePath,
-		std::vector<D3D11_INPUT_ELEMENT_DESC> layout
+		std::vector<D3D11_INPUT_ELEMENT_DESC> layout, bool isTerrain = false
 	);
 
 	virtual ~Shader();

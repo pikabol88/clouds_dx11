@@ -70,7 +70,7 @@ bool Texture::createFromFile(std::string path) {
 	{
 		result = DirectX::CreateDDSTextureFromFileEx(
 			this->device, widePath.c_str(), 0U, D3D11_USAGE_DEFAULT,
-			D3D11_BIND_UNORDERED_ACCESS | D3D11_BIND_SHADER_RESOURCE,
+			 D3D11_BIND_SHADER_RESOURCE,
 			0, 0, false, (ID3D11Resource**)&this->texture, &this->textureSRV
 		);
 	}

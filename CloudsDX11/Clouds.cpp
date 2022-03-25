@@ -23,6 +23,9 @@ cloudTexture(renderer, TextureFilter::BILINEAR, TextureFormat::R8G8B8A8_UNORM, T
 Clouds::~Clouds(){}
 
 void Clouds::draw() {
+
+	this->constantBuffer.setPS();
+
 	cb.translation += SettingsController::translationSpeed/10000;
 
 	if (cb.translation > 1.0f)

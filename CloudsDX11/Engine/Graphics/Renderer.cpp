@@ -300,6 +300,10 @@ void Renderer::beginFrame() {
 	if (this->_camera != nullptr) {
 		this->_viewMatrix = this->_camera->getViewMatrix();
 	}
+
+	//if (this->_camera2 != nullptr) {
+	//	this->_viewMatrix = this->_camera2->GetViewMatrix();
+	//}
 }
 
 void Renderer::endFrame() {
@@ -331,6 +335,13 @@ void Renderer::setCamera(Camera& cam) {
 	this->_viewMatrix = this->_camera->getViewMatrix();
 }
 
+//void Renderer::setCamera(CameraClass& cam)
+//{
+//	this->_camera2 = &cam;
+//	this->_projectionMatrix = this->_camera2->GetProjectionMatrix();
+//	this->_viewMatrix = this->_camera2->GetViewMatrix();
+//}
+
 XMMATRIX Renderer::getProjectionMatrix() {
 	return this->_projectionMatrix;
 }
@@ -341,6 +352,7 @@ XMMATRIX Renderer::getViewMatrix() {
 
 XMFLOAT3 Renderer::getCameraPosition() const {
 	return this->_camera->getPosition();
+	//return this->_camera2->GetPositionFloat3();
 }
 
 
